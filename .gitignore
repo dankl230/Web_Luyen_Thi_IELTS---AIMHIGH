@@ -1,0 +1,59 @@
+# =========================
+# OS / System files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.iml
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# =========================
+# Java / Maven (Spring Boot backend)
+# =========================
+**/target/
+**/build/
+
+# Keep wrapper scripts and properties
+!**/.mvn/wrapper/maven-wrapper.properties
+!**/mvnw
+!**/mvnw.cmd
+
+# =========================
+# Node / Frontend tooling (if added later)
+# =========================
+**/node_modules/
+**/dist/
+**/.cache/
+
+# =========================
+# Test / coverage artifacts
+# =========================
+**/coverage/
+**/.nyc_output/
+**/surefire-reports/
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.temp

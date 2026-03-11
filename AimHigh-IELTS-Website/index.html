@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AimHigh - Luyện Thi IELTS Cùng AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/logo.png" alt="AimHigh Logo" style="height: 65px;">
+                <span class="brand-name">AIM HIGH</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Luyện thi</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="listening.html"><i class="bi bi-headphones"></i> Listening</a></li>
+                            <li><a class="dropdown-item" href="reading.html"><i class="bi bi-book"></i> Reading</a></li>
+                            <li><a class="dropdown-item" href="writing.html"><i class="bi bi-pencil"></i> Writing</a></li>
+                            <li><a class="dropdown-item" href="speaking.html"><i class="bi bi-mic"></i> Speaking</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mock-test.html">Thi thử</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ai-tutor.html">AI Tutor</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Từ vựng</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="flashcard.html"><i class="bi bi-card-text"></i> Flashcard</a></li>
+                            <li><a class="dropdown-item" href="vocabulary.html"><i class="bi bi-book-half"></i> Kho từ vựng AimHigh</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="login.html" class="btn btn-outline-primary me-2">Đăng nhập</a>
+                    <a href="register.html" class="btn btn-primary">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center">
+                <div class="hero-badge">
+                    <span class="badge-icon">✨</span>
+                    <span>Nền tảng luyện IELTS hàng đầu Việt Nam</span>
+                </div>
+                <h1 class="hero-title">
+                    Luyện IELTS hiệu quả
+                    <br><span class="hero-subtitle-highlight">Đạt mục tiêu nhanh hơn</span>
+                </h1>
+                <p class="hero-description">
+                    Luyện 4 kỹ năng, luyện đề, học từ vựng, AI chấm điểm — tất cả trong một nền tảng.
+                </p>
+                <div class="hero-buttons">
+                    <a href="register.html" class="btn btn-hero-primary btn-lg">
+                        Bắt đầu luyện tập
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                    <a href="listening.html" class="btn btn-hero-outline btn-lg">
+                        Làm bài test thử
+                    </a>
+                </div>
+                <div class="hero-features">
+                    <div class="hero-feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Đăng ký miễn phí, bắt đầu ngay</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Theo dõi tiến độ học tập</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Giải thích chi tiết từng câu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Tính năng</span>
+                <h2 class="section-title">Luyện thi IELTS <span class="gradient-text">toàn diện</span></h2>
+                <p class="section-description">Đầy đủ 4 kỹ năng với công nghệ AI tiên tiến</p>
+            </div>
+            <div class="row g-4">
+                <!-- Listening -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card" data-skill="listening">
+                        <div class="feature-icon">
+                            <i class="bi bi-headphones"></i>
+                        </div>
+                        <h3 class="feature-title">Listening</h3>
+                        <p class="feature-description">Luyện nghe với audio chuẩn Cambridge, chấm điểm tự động</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> 100+ bài thi thử</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Transcript đầy đủ</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Giải thích đáp án AI</li>
+                        </ul>
+                        <a href="listening.html" class="feature-link">
+                            Luyện ngay <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Reading -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card" data-skill="reading">
+                        <div class="feature-icon">
+                            <i class="bi bi-book"></i>
+                        </div>
+                        <h3 class="feature-title">Reading</h3>
+                        <p class="feature-description">Đọc hiểu với passages đa dạng chủ đề, chấm điểm tức thì</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> 150+ bài đọc</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Đa dạng dạng bài</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Tips làm bài AI</li>
+                        </ul>
+                        <a href="reading.html" class="feature-link">
+                            Luyện ngay <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Writing -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card" data-skill="writing">
+                        <div class="feature-icon">
+                            <i class="bi bi-pencil"></i>
+                        </div>
+                        <h3 class="feature-title">Writing</h3>
+                        <p class="feature-description">Viết essay, AI chấm điểm 4 tiêu chí và góp ý chi tiết</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Task 1 & Task 2</li>
+                            <li><i class="bi bi-check-circle-fill"></i> AI chấm 4 tiêu chí</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Gợi ý cải thiện</li>
+                        </ul>
+                        <a href="writing.html" class="feature-link">
+                            Luyện ngay <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Speaking -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card" data-skill="speaking">
+                        <div class="feature-icon">
+                            <i class="bi bi-mic"></i>
+                        </div>
+                        <h3 class="feature-title">Speaking</h3>
+                        <p class="feature-description">Ghi âm trả lời, AI đánh giá phát âm và ngữ pháp</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Part 1, 2, 3</li>
+                            <li><i class="bi bi-check-circle-fill"></i> AI chấm Speaking</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Sample answers</li>
+                        </ul>
+                        <a href="speaking.html" class="feature-link">
+                            Luyện ngay <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Section -->
+    <section class="ai-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="ai-demo">
+                        <div class="ai-chat-window">
+                            <div class="chat-header">
+                                <div class="chat-avatar">
+                                    <i class="bi bi-robot"></i>
+                                </div>
+                                <div class="chat-info">
+                                    <h4>AI Tutor</h4>
+                                    <span class="status online">Đang hoạt động</span>
+                                </div>
+                            </div>
+                            <div class="chat-messages">
+                                <div class="message user">
+                                    <p>Làm thế nào để cải thiện Writing Task 2?</p>
+                                </div>
+                                <div class="message bot">
+                                    <p>Để cải thiện Writing Task 2, bạn cần tập trung vào:</p>
+                                    <p><strong>1. Cấu trúc bài:</strong> Introduction → Body 1 → Body 2 → Conclusion</p>
+                                    <p><strong>2. Từ vựng:</strong> Sử dụng collocations và academic words</p>
+                                    <p><strong>3. Ngữ pháp:</strong> Đa dạng câu phức, câu điều kiện...</p>
+                                </div>
+                                <div class="message user">
+                                    <p>Cho tôi ví dụ về introduction hay</p>
+                                </div>
+                                <div class="message bot typing">
+                                    <span class="typing-dot"></span>
+                                    <span class="typing-dot"></span>
+                                    <span class="typing-dot"></span>
+                                </div>
+                            </div>
+                            <div class="chat-input">
+                                <input type="text" placeholder="Hỏi AI bất cứ điều gì về IELTS...">
+                                <button><i class="bi bi-send-fill"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ai-content">
+                        <span class="section-badge">Powered by Gemini</span>
+                        <h2 class="section-title">AI Tutor <span class="gradient-text">thông minh</span></h2>
+                        <p class="section-description">
+                            Chatbot AI hỗ trợ học tập 24/7, giải đáp mọi thắc mắc về IELTS, 
+                            từ chiến lược làm bài đến ngữ pháp, từ vựng.
+                        </p>
+                        <div class="ai-features">
+                            <div class="ai-feature-item">
+                                <div class="ai-feature-icon">
+                                    <i class="bi bi-lightning-charge-fill"></i>
+                                </div>
+                                <div class="ai-feature-content">
+                                    <h4>Phản hồi tức thì</h4>
+                                    <p>Trả lời nhanh chóng, chính xác</p>
+                                </div>
+                            </div>
+                            <div class="ai-feature-item">
+                                <div class="ai-feature-icon">
+                                    <i class="bi bi-translate"></i>
+                                </div>
+                                <div class="ai-feature-content">
+                                    <h4>Song ngữ Anh-Việt</h4>
+                                    <p>Hỗ trợ cả tiếng Anh và tiếng Việt</p>
+                                </div>
+                            </div>
+                            <div class="ai-feature-item">
+                                <div class="ai-feature-icon">
+                                    <i class="bi bi-graph-up-arrow"></i>
+                                </div>
+                                <div class="ai-feature-content">
+                                    <h4>Cá nhân hóa</h4>
+                                    <p>Gợi ý phù hợp trình độ của bạn</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="ai-tutor.html" class="btn btn-primary btn-lg">
+                            Trò chuyện với AI <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Quy trình</span>
+                <h2 class="section-title">Bắt đầu trong <span class="gradient-text">3 bước</span></h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <div class="step-icon">
+                            <i class="bi bi-person-plus-fill"></i>
+                        </div>
+                        <h3>Đăng ký tài khoản</h3>
+                        <p>Tạo tài khoản miễn phí chỉ với email, bắt đầu ngay không cần thanh toán</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <div class="step-icon">
+                            <i class="bi bi-journal-check"></i>
+                        </div>
+                        <h3>Làm bài đánh giá</h3>
+                        <p>Hoàn thành bài test đầu vào để AI đánh giá trình độ hiện tại của bạn</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <div class="step-icon">
+                            <i class="bi bi-rocket-takeoff-fill"></i>
+                        </div>
+                        <h3>Luyện tập & Tiến bộ</h3>
+                        <p>Luyện thi theo lộ trình cá nhân, theo dõi tiến bộ qua Dashboard</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Đánh giá</span>
+                <h2 class="section-title">Học viên nói gì về <span class="gradient-text">AimHigh</span></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Tính năng AI chấm Writing giúp mình cải thiện từ 5.5 lên 7.0 chỉ sau 2 tháng. 
+                            Feedback chi tiết từng câu rất hữu ích!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">NT</div>
+                            <div class="author-info">
+                                <h4>Nguyễn Thảo</h4>
+                                <span>Band 7.0 | Sinh viên</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card featured">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Giao diện đẹp, dễ dùng. Kho đề phong phú và cập nhật thường xuyên. 
+                            Đặc biệt AI Tutor giải đáp rất nhanh và chính xác!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">TM</div>
+                            <div class="author-info">
+                                <h4>Trần Minh</h4>
+                                <span>Band 7.5 | Nhân viên văn phòng</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Listening và Reading chấm điểm ngay, giải thích tại sao sai rất rõ ràng. 
+                            Tiết kiệm nhiều tiền so với học trung tâm."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">LH</div>
+                            <div class="author-info">
+                                <h4>Lê Hương</h4>
+                                <span>Band 6.5 | Học sinh THPT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content text-center">
+                <h2>Sẵn sàng chinh phục <span class="gradient-text">IELTS</span>?</h2>
+                <p>Tham gia cùng hàng nghìn học viên đã cải thiện điểm số với AimHigh</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn btn-light btn-lg">
+                        Đăng ký miễn phí <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <p class="cta-note">Không cần thẻ tín dụng • Bắt đầu ngay lập tức</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <a href="index.html" class="navbar-brand">
+                            <img src="assets/logo.png" alt="AimHigh Logo" style="height: 65px;">
+                            <span class="brand-name">AIM HIGH</span>
+                        </a>
+                        <p>Nền tảng luyện thi IELTS thông minh với công nghệ AI, giúp bạn đạt band điểm mơ ước.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="bi bi-facebook"></i></a>
+                            <a href="#"><i class="bi bi-youtube"></i></a>
+                            <a href="#"><i class="bi bi-tiktok"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-links">
+                        <h4>Luyện thi</h4>
+                        <ul>
+                            <li><a href="listening.html">Listening</a></li>
+                            <li><a href="reading.html">Reading</a></li>
+                            <li><a href="writing.html">Writing</a></li>
+                            <li><a href="speaking.html">Speaking</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-links">
+                        <h4>Tài nguyên</h4>
+                        <ul>
+                            <li><a href="vocabulary.html">Từ vựng</a></li>
+                            <li><a href="grammar.html">Ngữ pháp</a></li>
+                            <li><a href="tips.html">Mẹo thi</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-links">
+                        <h4>Hỗ trợ</h4>
+                        <ul>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="contact.html">Liên hệ</a></li>
+                            <li><a href="policy.html">Chính sách</a></li>
+                            <li><a href="terms.html">Điều khoản</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-links">
+                        <h4>Liên hệ</h4>
+                        <ul class="contact-info">
+                            <li><i class="bi bi-envelope"></i> support@aimhigh.vn</li>
+                            <li><i class="bi bi-telephone"></i> 1900 xxxx</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AimHigh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - AimHigh IELTS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1f3f66;
+            --primary-blue-dark: #162f4d;
+            --text-primary: #0f2f53;
+            --text-secondary: #5f7390;
+            --input-border: #d9e1ea;
+            --bg-light: #f4f7fb;
+            --logo-gold: #d4a017;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+        }
+
+        .auth-shell {
+            min-height: 100vh;
+        }
+
+        .split-pane {
+            min-height: 100vh;
+        }
+
+        .form-pane {
+            background: #ffffff;
+        }
+
+        .branding-pane {
+            background: linear-gradient(160deg, #1f3f66 0%, #2b5889 100%);
+            color: #f1f8ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .branding-pane::before,
+        .branding-pane::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.09);
+            filter: blur(4px);
+            pointer-events: none;
+        }
+
+        .branding-pane::before {
+            width: 260px;
+            height: 260px;
+            top: -60px;
+            right: -70px;
+        }
+
+        .branding-pane::after {
+            width: 320px;
+            height: 320px;
+            bottom: -120px;
+            left: -90px;
+        }
+
+        .form-wrap {
+            width: min(470px, 100%);
+            padding: 32px 12px;
+        }
+
+        .brand-wrap {
+            width: min(560px, 100%);
+            padding: 24px 12px;
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .brand-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            margin-bottom: 22px;
+        }
+
+        .brand-mini img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4px;
+        }
+
+        .brand-mini span {
+            font-size: 1.85rem;
+            font-weight: 800;
+            letter-spacing: 0.2px;
+        }
+
+        .heading-main {
+            font-size: clamp(2rem, 3.2vw, 2.65rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .heading-sub {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+        }
+
+        .brand-heading {
+            font-size: clamp(2rem, 3.4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .brand-desc {
+            font-size: 1.03rem;
+            color: rgba(240, 248, 255, 0.9);
+            line-height: 1.6;
+            max-width: 520px;
+            margin-bottom: 18px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 9px;
+            color: rgba(240, 248, 255, 0.95);
+            font-weight: 500;
+        }
+
+        .feature-list li i {
+            color: var(--logo-gold);
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .input-icon-wrap {
+            position: relative;
+        }
+
+        .input-icon-wrap .fa-solid {
+            position: absolute;
+            top: 50%;
+            left: 14px;
+            transform: translateY(-50%);
+            color: #8ba0b8;
+            font-size: 0.95rem;
+        }
+
+        .input-icon-wrap .form-control {
+            height: 48px;
+            border: 1px solid var(--input-border);
+            padding-left: 42px;
+            border-radius: 0.85rem;
+            background: #fcfdff;
+        }
+
+        .input-icon-wrap .form-control:focus {
+            border-color: rgba(46, 117, 182, 0.6);
+            box-shadow: 0 0 0 0.2rem rgba(46, 117, 182, 0.14);
+        }
+
+        .btn-primary-auth {
+            background: var(--primary-blue);
+            border: none;
+            color: #fff;
+            font-weight: 700;
+            height: 48px;
+            border-radius: 0.85rem;
+        }
+
+        .btn-primary-auth:hover {
+            background: var(--primary-blue-dark);
+            color: #fff;
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #8394aa;
+            font-size: 0.92rem;
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #dde5ef;
+        }
+
+        .btn-google {
+            height: 46px;
+            border-radius: 0.85rem;
+            border: 1px solid #d4deea;
+            font-weight: 600;
+            color: #1f3550;
+            background: #ffffff;
+        }
+
+        .btn-google:hover {
+            background: #f8fbff;
+        }
+
+        .switch-auth {
+            color: #73859b;
+            font-size: 0.96rem;
+        }
+
+        .switch-auth a {
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            max-width: 520px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(212, 160, 23, 0.32);
+            border-radius: 1rem;
+            backdrop-filter: blur(9px);
+            padding: 1rem;
+        }
+
+        .stat-card i {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            margin-bottom: 6px;
+            color: var(--logo-gold);
+        }
+
+        .stat-card h4 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 2px;
+            color: #ffffff;
+        }
+
+        .stat-card p {
+            margin: 0;
+            font-size: 0.96rem;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        @media (max-width: 991.98px) {
+            .split-pane {
+                min-height: auto;
+            }
+
+            .form-pane,
+            .branding-pane {
+                min-height: 50vh;
+            }
+
+            .brand-wrap,
+            .form-wrap {
+                width: min(560px, 100%);
+                padding: 42px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container-fluid auth-shell px-0">
+        <div class="row g-0 auth-shell">
+            <section class="col-lg-6 split-pane branding-pane d-flex align-items-center justify-content-center">
+                <div class="brand-wrap">
+                    <a href="index.html" class="brand-mini">
+                        <img src="assets/logo.png" alt="AimHigh IELTS logo">
+                        <span>AimHigh</span>
+                    </a>
+
+                    <h2 class="brand-heading">Bắt Đầu Hành Trình IELTS</h2>
+                    <p class="brand-desc">Nền tảng học IELTS theo lộ trình cá nhân hóa với AI hỗ trợ toàn diện và chấm điểm tức thì.</p>
+
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-circle-check"></i> Luyện nghe thông minh theo level</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Luyện đề thi thử chuẩn format thật</li>
+                        <li><i class="fa-solid fa-circle-check"></i> AI sửa bài Writing chi tiết</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Theo dõi tiến bộ theo từng kỹ năng</li>
+                    </ul>
+
+                    <div class="stats-grid">
+                        <article class="stat-card rounded-4 text-center">
+                            <i class="fa-solid fa-headphones"></i>
+                            <h4>8000+</h4>
+                            <p>Bài nghe</p>
+                        </article>
+                        <article class="stat-card rounded-4 text-center">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <h4>1500+</h4>
+                            <p>Câu hỏi</p>
+                        </article>
+                        <article class="stat-card rounded-4 text-center">
+                            <i class="fa-solid fa-file-lines"></i>
+                            <h4>50+</h4>
+                            <p>Đề thi</p>
+                        </article>
+                        <article class="stat-card rounded-4 text-center">
+                            <i class="fa-solid fa-user-graduate"></i>
+                            <h4>10000+</h4>
+                            <p>Học viên</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="col-lg-6 split-pane form-pane d-flex align-items-center justify-content-center">
+                <div class="form-wrap">
+                    <h1 class="heading-main mb-2">Tạo tài khoản</h1>
+                    <p class="heading-sub">Bắt đầu chinh phục IELTS ngay hôm nay</p>
+
+                    <form id="registerForm" onsubmit="handleRegister(event)">
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <div class="input-icon-wrap">
+                                <i class="fa-solid fa-envelope"></i>
+                                <input type="email" class="form-control rounded-3" id="registerEmail" placeholder="you@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Mật khẩu</label>
+                            <div class="input-icon-wrap">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" class="form-control rounded-3" id="registerPassword" placeholder="Tối thiểu 8 ký tự" minlength="6" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Xác nhận mật khẩu</label>
+                            <div class="input-icon-wrap">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" class="form-control rounded-3" id="confirmPassword" placeholder="Nhập lại mật khẩu" minlength="6" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary-auth w-100">Đăng ký</button>
+                    </form>
+
+                    <div class="auth-divider my-3"><span>Hoặc tiếp tục với</span></div>
+
+                    <button type="button" class="btn btn-google w-100 d-flex align-items-center justify-content-center gap-2">
+                        <i class="fa-brands fa-google"></i>
+                        <span>Google Login</span>
+                    </button>
+
+                    <p class="switch-auth text-center mt-3 mb-0">
+                        Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function handleRegister(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('registerEmail').value.trim();
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Mật khẩu xác nhận không khớp.');
+                return;
+            }
+
+            const user = {
+                email,
+                password,
+                createdAt: new Date().toISOString()
+            };
+
+            localStorage.setItem('aimhigh_user', JSON.stringify(user));
+            alert('Đăng ký thành công! Vui lòng đăng nhập.');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

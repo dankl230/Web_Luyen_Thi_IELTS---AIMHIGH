@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo đề thi - AimHigh IELTS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <!-- Quill Rich Text Editor -->
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <a href="dashboard.html" class="sidebar-brand">
+                <img src="../assets/logo.png" alt="AimHigh">
+                <span class="sidebar-brand-text">AIM HIGH</span>
+            </a>
+            <nav class="sidebar-nav">
+                <div class="sidebar-nav-label">Tổng quan</div>
+                <a href="dashboard.html" class="sidebar-link">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>Dashboard</span>
+                </a>
+                <div class="sidebar-nav-label">Quản lý đề thi</div>
+                <a href="test-manager.html" class="sidebar-link">
+                    <i class="bi bi-collection"></i>
+                    <span>Danh sách đề thi</span>
+                </a>
+                <a href="test-builder.html" class="sidebar-link active">
+                    <i class="bi bi-plus-square"></i>
+                    <span>Tạo đề thi</span>
+                </a>
+                <div class="sidebar-nav-label">Chấm điểm</div>
+                <a href="grading.html" class="sidebar-link">
+                    <i class="bi bi-pencil-square"></i>
+                    <span>Chấm bài</span>
+                    <span class="sidebar-badge">12</span>
+                </a>
+                <div class="sidebar-nav-label">Người dùng</div>
+                <a href="users.html" class="sidebar-link">
+                    <i class="bi bi-people"></i>
+                    <span>Quản lý tài khoản</span>
+                </a>
+                <div class="sidebar-nav-label">Khác</div>
+                <a href="../index.html" class="sidebar-link">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                    <span>Xem Website</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="sidebar-toggle-btn" onclick="toggleSidebar()">
+                    <i class="bi bi-chevron-bar-left" id="sidebarToggleIcon"></i>
+                    <span> Thu gọn</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <div class="admin-main">
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button class="topbar-btn d-lg-none" onclick="toggleMobileSidebar()">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h1 class="topbar-title">Tạo đề thi mới</h1>
+                </div>
+                <div class="topbar-right">
+                    <button class="btn-admin-outline" id="btnSaveDraft">
+                        <i class="bi bi-save"></i> Lưu nháp
+                    </button>
+                    <button class="btn-admin-primary" id="btnPublish">
+                        <i class="bi bi-send"></i> Xuất bản
+                    </button>
+                    <div class="dropdown">
+                        <div class="topbar-avatar" data-bs-toggle="dropdown">AD</div>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Hồ sơ</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../login.html"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <main class="admin-content">
+                <!-- Test Meta Info -->
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <h3 class="admin-card-title">Thông tin đề thi</h3>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold" style="font-size:0.85rem;">Tên đề thi *</label>
+                            <input type="text" class="form-control" id="testTitle" placeholder="VD: Cambridge IELTS 18 - Test 1">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold" style="font-size:0.85rem;">Kỹ năng *</label>
+                            <select class="form-select" id="testSkill">
+                                <option value="">Chọn kỹ năng</option>
+                                <option value="listening">Listening</option>
+                                <option value="reading">Reading</option>
+                                <option value="writing">Writing</option>
+                                <option value="speaking">Speaking</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold" style="font-size:0.85rem;">Thời gian (phút) *</label>
+                            <input type="number" class="form-control" id="testDuration" value="30" min="1">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold" style="font-size:0.85rem;">Độ khó</label>
+                            <select class="form-select" id="testDifficulty">
+                                <option value="easy">Easy</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                        <div class="col-md-8">
+                            <label class="form-label fw-semibold" style="font-size:0.85rem;">Mô tả</label>
+                            <input type="text" class="form-control" id="testDesc" placeholder="Mô tả ngắn về đề thi...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Split Screen Builder -->
+                <div class="builder-split">
+                    <!-- Left: Content Panel -->
+                    <div class="builder-panel">
+                        <div class="builder-panel-header">
+                            <span><i class="bi bi-file-earmark-music me-2"></i>Nội dung đề thi</span>
+                            <select class="form-select form-select-sm" style="width:auto;" id="contentType">
+                                <option value="audio">Upload Audio</option>
+                                <option value="passage">Nhập đoạn văn</option>
+                            </select>
+                        </div>
+                        <div class="builder-panel-body">
+                            <!-- Audio Upload -->
+                            <div id="audioSection">
+                                <div class="upload-zone" id="audioDropZone">
+                                    <i class="bi bi-cloud-arrow-up"></i>
+                                    <p><strong>Kéo thả file audio vào đây</strong></p>
+                                    <p class="upload-hint">Hỗ trợ: MP3, WAV, OGG — Tối đa 50MB</p>
+                                    <input type="file" id="audioFileInput" accept="audio/*" hidden>
+                                </div>
+                                <div id="audioPreviewContainer" style="display:none;">
+                                    <div class="audio-preview">
+                                        <i class="bi bi-file-earmark-music" style="font-size:1.3rem;color:var(--primary-color);"></i>
+                                        <div style="flex:1;">
+                                            <div id="audioFileName" style="font-size:0.85rem;font-weight:600;"></div>
+                                            <div id="audioFileSize" style="font-size:0.75rem;color:var(--admin-text-muted);"></div>
+                                        </div>
+                                        <audio controls id="audioPlayer"></audio>
+                                        <button class="remove-audio" onclick="removeAudio()" title="Xóa">
+                                            <i class="bi bi-x-lg"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Passage (Rich Text) -->
+                            <div id="passageSection" style="display:none;">
+                                <div class="rich-text-wrapper">
+                                    <div id="passageEditor"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Question Builder -->
+                    <div class="builder-panel">
+                        <div class="builder-panel-header">
+                            <span><i class="bi bi-list-check me-2"></i>Câu hỏi (<span id="questionCount">0</span>)</span>
+                            <button class="btn-admin-primary" onclick="addQuestion()">
+                                <i class="bi bi-plus"></i> Thêm câu hỏi
+                            </button>
+                        </div>
+                        <div class="builder-panel-body" id="questionsContainer">
+                            <div class="text-center py-5" id="emptyQuestions">
+                                <i class="bi bi-inbox" style="font-size:2.5rem;color:var(--admin-text-muted);"></i>
+                                <p style="color:var(--admin-text-muted);margin-top:12px;">Chưa có câu hỏi nào.<br>Nhấn <strong>"Thêm câu hỏi"</strong> để bắt đầu.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Question Template (hidden) -->
+    <template id="questionTemplate">
+        <div class="question-card" data-question-id="">
+            <div class="question-card-header">
+                <span class="question-number">Câu <span class="q-num"></span></span>
+                <div>
+                    <select class="form-select form-select-sm d-inline-block" style="width:auto;" onchange="changeQuestionType(this)">
+                        <option value="radio">Trắc nghiệm (1 đáp án)</option>
+                        <option value="checkbox">Chọn nhiều đáp án</option>
+                        <option value="text">Điền từ</option>
+                    </select>
+                    <button class="btn-icon-sm danger ms-1" onclick="removeQuestion(this)" title="Xóa câu hỏi">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Câu hỏi</label>
+                <input type="text" class="form-control" placeholder="Nhập nội dung câu hỏi...">
+            </div>
+            <div class="options-area">
+                <!-- Options rendered by JS -->
+            </div>
+            <button class="btn btn-sm btn-link text-primary p-0 mt-1 add-option-btn" onclick="addOption(this)">
+                <i class="bi bi-plus-circle"></i> Thêm lựa chọn
+            </button>
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+    <script src="../js/admin.js"></script>
+    <script>
+        // ===== Content Type Switch =====
+        const contentTypeSelect = document.getElementById('contentType');
+        const audioSection = document.getElementById('audioSection');
+        const passageSection = document.getElementById('passageSection');
+
+        contentTypeSelect.addEventListener('change', function () {
+            if (this.value === 'audio') {
+                audioSection.style.display = '';
+                passageSection.style.display = 'none';
+            } else {
+                audioSection.style.display = 'none';
+                passageSection.style.display = '';
+            }
+        });
+
+        // ===== Quill Editor =====
+        const quill = new Quill('#passageEditor', {
+            theme: 'snow',
+            placeholder: 'Nhập đoạn văn Reading tại đây...',
+            modules: {
+                toolbar: [
+                    [{ header: [1, 2, 3, false] }],
+                    ['bold', 'italic', 'underline'],
+                    [{ list: 'ordered' }, { list: 'bullet' }],
+                    ['blockquote'],
+                    ['clean']
+                ]
+            }
+        });
+
+        // ===== Audio Upload =====
+        const audioDropZone = document.getElementById('audioDropZone');
+        const audioFileInput = document.getElementById('audioFileInput');
+
+        audioDropZone.addEventListener('click', () => audioFileInput.click());
+
+        audioDropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            audioDropZone.classList.add('dragover');
+        });
+
+        audioDropZone.addEventListener('dragleave', () => {
+            audioDropZone.classList.remove('dragover');
+        });
+
+        audioDropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            audioDropZone.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('audio/')) {
+                previewAudio(file);
+            }
+        });
+
+        audioFileInput.addEventListener('change', (e) => {
+            if (e.target.files[0]) {
+                previewAudio(e.target.files[0]);
+            }
+        });
+
+        function previewAudio(file) {
+            const maxSize = 50 * 1024 * 1024;
+            if (file.size > maxSize) {
+                alert('File quá lớn. Tối đa 50MB.');
+                return;
+            }
+            const url = URL.createObjectURL(file);
+            document.getElementById('audioPlayer').src = url;
+            document.getElementById('audioFileName').textContent = file.name;
+            document.getElementById('audioFileSize').textContent = (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+            document.getElementById('audioDropZone').style.display = 'none';
+            document.getElementById('audioPreviewContainer').style.display = '';
+        }
+
+        function removeAudio() {
+            document.getElementById('audioPlayer').src = '';
+            document.getElementById('audioDropZone').style.display = '';
+            document.getElementById('audioPreviewContainer').style.display = 'none';
+            audioFileInput.value = '';
+        }
+
+        // ===== Question Builder =====
+        let questionCounter = 0;
+
+        function addQuestion(type = 'radio') {
+            questionCounter++;
+            const template = document.getElementById('questionTemplate');
+            const clone = template.content.cloneNode(true);
+
+            clone.querySelector('.q-num').textContent = questionCounter;
+            clone.querySelector('.question-card').dataset.questionId = questionCounter;
+
+            const container = document.getElementById('questionsContainer');
+            document.getElementById('emptyQuestions')?.remove();
+            container.appendChild(clone);
+
+            // Add default options for radio/checkbox
+            const card = container.lastElementChild;
+            if (type === 'radio' || type === 'checkbox') {
+                for (let i = 0; i < 4; i++) {
+                    addOptionToCard(card, type);
+                }
+            }
+            card.querySelector('.add-option-btn').style.display = (type === 'text') ? 'none' : '';
+
+            updateQuestionCount();
+        }
+
+        function removeQuestion(btn) {
+            const card = btn.closest('.question-card');
+            card.remove();
+            renumberQuestions();
+            updateQuestionCount();
+
+            if (document.querySelectorAll('.question-card').length === 0) {
+                document.getElementById('questionsContainer').innerHTML = `
+                    <div class="text-center py-5" id="emptyQuestions">
+                        <i class="bi bi-inbox" style="font-size:2.5rem;color:var(--admin-text-muted);"></i>
+                        <p style="color:var(--admin-text-muted);margin-top:12px;">Chưa có câu hỏi nào.<br>Nhấn <strong>"Thêm câu hỏi"</strong> để bắt đầu.</p>
+                    </div>`;
+            }
+        }
+
+        function renumberQuestions() {
+            document.querySelectorAll('.question-card').forEach((card, i) => {
+                card.querySelector('.q-num').textContent = i + 1;
+                card.dataset.questionId = i + 1;
+            });
+            questionCounter = document.querySelectorAll('.question-card').length;
+        }
+
+        function updateQuestionCount() {
+            document.getElementById('questionCount').textContent = document.querySelectorAll('.question-card').length;
+        }
+
+        function changeQuestionType(select) {
+            const card = select.closest('.question-card');
+            const type = select.value;
+            const optionsArea = card.querySelector('.options-area');
+            const addBtn = card.querySelector('.add-option-btn');
+
+            optionsArea.innerHTML = '';
+
+            if (type === 'text') {
+                optionsArea.innerHTML = `
+                    <label class="form-label">Đáp án đúng</label>
+                    <input type="text" class="form-control" placeholder="Nhập đáp án đúng...">`;
+                addBtn.style.display = 'none';
+            } else {
+                for (let i = 0; i < 4; i++) {
+                    addOptionToCard(card, type);
+                }
+                addBtn.style.display = '';
+            }
+        }
+
+        function addOption(btn) {
+            const card = btn.closest('.question-card');
+            const type = card.querySelector('select').value;
+            addOptionToCard(card, type);
+        }
+
+        function addOptionToCard(card, type) {
+            const optionsArea = card.querySelector('.options-area');
+            const idx = optionsArea.querySelectorAll('.option-row').length;
+            const inputType = type === 'checkbox' ? 'checkbox' : 'radio';
+            const groupName = 'q' + card.dataset.questionId;
+            const labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+            const label = labels[idx] || (idx + 1);
+
+            const row = document.createElement('div');
+            row.className = 'option-row';
+            row.innerHTML = `
+                <input type="${inputType}" class="form-check-input" name="${groupName}" title="Đáp án đúng">
+                <input type="text" class="form-control" placeholder="Lựa chọn ${label}">
+                <span class="remove-option" onclick="this.parentElement.remove()"><i class="bi bi-x"></i></span>`;
+            optionsArea.appendChild(row);
+        }
+
+        // ===== Save / Publish =====
+        document.getElementById('btnSaveDraft').addEventListener('click', () => {
+            const data = collectTestData();
+            data.status = 'draft';
+            console.log('Save draft:', data);
+            alert('Đã lưu nháp thành công!');
+        });
+
+        document.getElementById('btnPublish').addEventListener('click', () => {
+            const data = collectTestData();
+            if (!data.title || !data.skill) {
+                alert('Vui lòng nhập đầy đủ thông tin đề thi.');
+                return;
+            }
+            if (data.questions.length === 0) {
+                alert('Vui lòng thêm ít nhất 1 câu hỏi.');
+                return;
+            }
+            data.status = 'published';
+            console.log('Publish:', data);
+            alert('Đã xuất bản đề thi thành công!');
+        });
+
+        function collectTestData() {
+            const questions = [];
+            document.querySelectorAll('.question-card').forEach(card => {
+                const type = card.querySelector('select').value;
+                const content = card.querySelector('.mb-3 input').value;
+                const options = [];
+                let correctAnswer = null;
+
+                if (type === 'text') {
+                    correctAnswer = card.querySelector('.options-area input[type="text"]')?.value || '';
+                } else {
+                    card.querySelectorAll('.option-row').forEach(row => {
+                        const isCorrect = row.querySelector('input[type="radio"], input[type="checkbox"]').checked;
+                        const text = row.querySelector('input[type="text"]').value;
+                        options.push({ text, isCorrect });
+                    });
+                }
+
+                questions.push({ type, content, options, correctAnswer });
+            });
+
+            return {
+                title: document.getElementById('testTitle').value,
+                skill: document.getElementById('testSkill').value,
+                duration: parseInt(document.getElementById('testDuration').value) || 0,
+                difficulty: document.getElementById('testDifficulty').value,
+                description: document.getElementById('testDesc').value,
+                passage: quill.root.innerHTML,
+                questions
+            };
+        }
+    </script>
+</body>
+</html>
